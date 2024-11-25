@@ -3,107 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rudasoft - Professional Software Development Solutions">
-    <meta name="keywords" content="software development, web development, custom software, Rudasoft">
-    <meta name="author" content="Rudasoft">
-    
     <title>Rudasoft | Software Product Development</title>
-    
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header fade-in">
+    <nav class="nav">
         <div class="logo">
-            <img src="assets/logo.svg" alt="Rudasoft Logo" class="fade-in">
+            <!-- Logo SVG placeholder -->
+            <img src="assets/logo.svg" alt="Rudasoft Logo">
         </div>
-        <div class="menu-toggle">
+        <button class="hamburger" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="typing-container">
+            <div class="typing-text"></div>
+            <span class="cursor"></span>
         </div>
-        <nav class="nav">
-            <a href="#about" class="nav-link slide-in">About</a>
-            <a href="#services" class="nav-link slide-in">Services</a>
-            <a href="#contact" class="nav-link slide-in">Contact</a>
-        </nav>
-    </header>
-    <section id="intro" class="intro">
-        <h1 class="typewriter">In 2024, two brothers decided to head into the unknown, and solve the problems others said could not be solved. Armed with two laptops and two decades of product development experience, they launched Rudasoft. Today, despite the odds, they're reshaping the tech world one idea at a time. If you have a problem, if no one else can help, and if you can find them, maybe you can hire Rudasoft.</h1>
-    </section>
-    <div class="container main-container">
-
-        <main>
-            
-
-            
-
-            <section id="about" class="section fade-in">
-                <h2>About Us</h2>
-                <p>Rudasoft is a software product development firm led by Greg Rudakov and Stephen Rudakov. With over 20 years of expertise in software product strategy and delivery, Rudasoft specialises in translating business objectives into actionable technical strategies.</p><p>Our team has extensive experience working across industries including banking, education, public safety, manufacturing, and automotive, bringing a unique perspective to complex challenges. With a strong focus on B2B solutions, we excel at creating tailored strategies that align technical delivery with business goals. Rudasoft’s unique blend of product thinking and deep technical expertise ensures pragmatic and innovative solutions for your business needs.
-</p>
-            </section>
-
-            <section id="services" class="section fade-in">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-item slide-in">
-                        <h3>1. App modernisation</h3>
-<p>Transform your legacy systems into cutting-edge solutions. Rudasoft specialises in revitalising existing applications to align with modern technologies, ensuring they are faster, more secure, and ready for the future.</p>
-<p><strong>Key benefits:</strong></p>
-<ul>
-  <li>Seamless migration to cloud-native platforms</li>
-  <li>Enhanced performance and scalability</li>
-  <li>Improved user experience with modern UI/UX redesign</li>
-  <li>Cost optimisation through updated tech stacks</li>
-</ul>
-<p><strong>Ideal for:</strong> businesses looking to extend the life of critical software and stay competitive in an evolving market.</p>
-                    </div>
-                    <div class="service-item slide-in">
-<h3>2. Digital transformation</h3>
-<p>Empower your business with innovative, tailored solutions. Rudasoft partners with you to streamline processes, integrate cutting-edge technologies, and drive operational efficiency.</p>
-<p><strong>Key benefits:</strong></p>
-<ul>
-  <li>Custom-built software to fit unique business needs</li>
-  <li>Integration of AI, automation, and analytics for smarter decision-making</li>
-  <li>Scalable infrastructure to support future growth</li>
-  <li>Improved collaboration through modern digital workflows</li>
-</ul>
-<p><strong>Ideal for:</strong> organisations ready to embrace the next wave of innovation and reimagine their operations.</p>
-
-                    </div>
-                    <div class="service-item slide-in">
-<h3>3. New product launch</h3>
-<p>Bring your vision to life with Rudasoft’s end-to-end product development services. From idea to market, we ensure your product is built to make an impact.</p>
-<p><strong>Key benefits:</strong></p>
-<ul>
-  <li>Rapid prototyping and MVP development</li>
-  <li>Agile processes for iterative refinement</li>
-  <li>Market-ready solutions with robust architecture</li>
-  <li>Expert guidance on product strategy and go-to-market plans</li>
-</ul>
-<p><strong>Ideal for:</strong> startups and enterprises looking to launch innovative software products that captivate users and drive success.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="section fade-in">
-                <h2>Contact Us</h2>
-                <div class="contact-info">
-                    <p>Email: <a href="mailto:hello@rudasoft.com.au">hello@rudasoft.com.au</a></p>
-                    <p>Phone: +61 438 277 779</p>
-                    <p>Location: Melbourne, AU</p>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer fade-in">
-            <p>&copy; 2024 Rudasoft Pty Ltd. All rights reserved.</p>
-        </footer>
     </div>
-    
-    <script src="js/animations.js"></script>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p>Rudasoft is a software product development firm led by Greg Rudakov and Stephen Rudakov. With over 20 years of expertise in software product strategy and delivery, Rudasoft specialises in translating business objectives into actionable technical strategies.</p><p>Our team has extensive experience working across industries including banking, education, public safety, manufacturing, and automotive, bringing a unique perspective to complex challenges. With a strong focus on B2B solutions, we excel at creating tailored strategies that align technical delivery with business goals. Rudasoft’s unique blend of product thinking and deep technical expertise ensures pragmatic and innovative solutions for your business needs.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>App modernisation</h3>
+                    <p>Transform your legacy systems into cutting-edge solutions. Rudasoft specialises in revitalising existing applications to align with modern technologies, ensuring they are faster, more secure, and ready for the future.</p>
+                    <p><strong>Key benefits:</strong></p>
+                    <ul>
+                      <li>Seamless migration to cloud-native platforms</li>
+                      <li>Enhanced performance and scalability</li>
+                      <li>Improved user experience with modern UI/UX redesign</li>
+                      <li>Cost optimisation through updated tech stacks</li>
+                    </ul>
+                    <p><strong>Ideal for:</strong> businesses looking to extend the life of critical software and stay competitive in an evolving market.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Digital transformation</h3>
+                    <p>Empower your business with innovative, tailored solutions. Rudasoft partners with you to streamline processes, integrate cutting-edge technologies, and drive operational efficiency.</p>
+                    <p><strong>Key benefits:</strong></p>
+                    <ul>
+                      <li>Custom-built software to fit unique business needs</li>
+                      <li>Integration of AI, automation, and analytics for smarter decision-making</li>
+                      <li>Scalable infrastructure to support future growth</li>
+                      <li>Improved collaboration through modern digital workflows</li>
+                    </ul>
+                    <p><strong>Ideal for:</strong> organisations ready to embrace the next wave of innovation and reimagine their operations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>New product launches</h3>
+                    <p>Bring your vision to life with Rudasoft’s end-to-end product development services. From idea to market, we ensure your product is built to make an impact.</p>
+                    <p><strong>Key benefits:</strong></p>
+                    <ul>
+                      <li>Rapid prototyping and MVP development</li>
+                      <li>Agile processes for iterative refinement</li>
+                      <li>Market-ready solutions with robust architecture</li>
+                      <li>Expert guidance on product strategy and go-to-market plans</li>
+                    </ul>
+                    <p><strong>Ideal for:</strong> startups and enterprises looking to launch innovative software products that captivate users and drive success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Contact</h3>
+                    <p>hello@rudasoft.com.au<br>+61438277779</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Melbourne<br>AU</p>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Rudasoft Pty Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/animations.js"></script>
 </body>
 </html>
