@@ -1,106 +1,76 @@
-// Intersection Observer for scroll animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.2  // Increased threshold for better timing
-};
+// Typing animation
+class TypeWriter {
+    constructor(element, text, speed = 50) {
+        this.element = element;
+        this.text = text;
+        this.speed = speed;
+        this.currentChar = 0;
+        this.isComplete = false;
+    }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Add a slight delay for sequential reveals
-            setTimeout(() => {
+    type() {
+        if (this.currentChar < this.text.length) {
+            this.element.textContent += this.text.charAt(this.currentChar);
+            this.currentChar++;
+            setTimeout(() => this.type(), this.speed);
+        } else {
+            this.isComplete = true;
+            document.querySelector('.nav').classList.add('visible');
+        }
+    }
+}
+
+// Initialize typing animation
+document.addEventListener('DOMContentLoaded', () => {
+    const typingElement = document.querySelector('.typing-text');
+    const text = "In 2024, two brothers decided to head into the unknown, and solve the problems others said could not be solved. Armed with two laptops and two decades of product development experience, they launched Rudasoft. Today, despite the odds, they're reshaping the tech world one idea at a time. If you have a problem, if no one else can help, and if you can find them, maybe you can hire...";
+    const typeWriter = new TypeWriter(typingElement, text, 50);
+    typeWriter.type();
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-            }, 100);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    // Show navigation on scroll or typing completion
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100 || typeWriter.isComplete) {
+            document.querySelector('.nav').classList.add('visible');
         }
     });
-}, observerOptions);
 
-// Mobile menu toggle
-function setupMobileMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Hamburger menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        // Close menu when clicking nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && !menuToggle.contains(e.target) && nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
-    }
-}
-
-// Function to handle intro sequence
-function startIntroSequence() {
-    const intro = document.querySelector('.intro');
-    const mainContainer = document.querySelector('.container');
-    const typewriter = document.querySelector('.typewriter');
-    
-    if (!intro || !mainContainer || !typewriter) return;
-    
-    const text = typewriter.textContent.trim();
-    typewriter.textContent = '';
-    // Split by newlines first, then words
-    const lines = text.split('\n');
-    const words = lines.map(line => line.trim().split(/\s+/));
-    let currentLine = 0;
-    let currentWord = 0;
-    
-    const header = document.querySelector('.header');
-    if (header) {
-        header.style.opacity = '1';
-        header.classList.add('visible');
-    }
-    
-    intro.style.display = 'flex';
-    intro.style.opacity = '1';
-    
-    function typeWord() {
-        if (currentLine < words.length) {
-            if (currentWord < words[currentLine].length) {
-                typewriter.textContent += words[currentLine][currentWord] + ' ';
-                currentWord++;
-                setTimeout(typeWord, Math.random() * 150 + 100);
-            } else {
-                typewriter.textContent += '\n\n';
-                currentLine++;
-                currentWord = 0;
-                setTimeout(typeWord, Math.random() * 800 + 400); // Longer pause between lines
-            }
-        } else {
-            // After typing is complete, show the rest of the content
-            mainContainer.style.opacity = '1';
-            mainContainer.classList.add('visible');
-            
-            // Initialize scroll animations for all elements
-            const animatedElements = document.querySelectorAll('.fade-in, .slide-in');
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
-        }
-    }
-    
-    typeWord();
-}
-
-// Initialize all functionality when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    setupMobileMenu();
-    startIntroSequence();
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // Animate hamburger
+        const spans = hamburger.querySelectorAll('span');
+        spans.forEach(span => span.classList.toggle('active'));
+    });
 });
