@@ -79,7 +79,7 @@ body {
 }
 
 .typing-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -205,7 +205,7 @@ button:hover {
 /* Media Queries */
 @media (max-width: 768px) {
     .typing-text {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
     
     .hamburger {
